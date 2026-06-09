@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #eef2f7;
+  color: #222;
+}
+
+.container {
+  min-height: 100vh;
+  padding: 24px;
+}
+
+.card,
+.admin-panel {
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+}
+
+.login-card {
+  max-width: 420px;
+  margin: 50px auto;
+  padding: 24px;
+}
+
+.login-card h1 {
+  margin-bottom: 6px;
+}
+
+.login-card p {
+  color: #666;
+  line-height: 1.5;
+}
+
+.admin-panel {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 22px;
+}
+
+.hidden {
+  display: none;
+}
+
+label {
+  display: block;
+  margin-top: 14px;
+  margin-bottom: 7px;
+  font-weight: bold;
+}
+
+input,
+select,
+button {
+  width: 100%;
+  padding: 11px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+input,
+select {
+  border: 1px solid #c9c9c9;
+  background: #fff;
+}
+
+button {
+  border: none;
+  background: #1a73e8;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:disabled {
+  background: #999;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #5f6368;
+  max-width: 120px;
+}
+
+.btn-success {
+  background: #188038;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.topbar h1 {
+  margin: 0 0 4px;
+}
+
+.topbar p {
+  margin: 0;
+  color: #666;
+}
+
+.toolbar {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 16px;
+}
+
+.filter-group label {
+  margin-top: 0;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.summary div {
+  background: #f1f3f4;
+  padding: 12px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+}
+
+table {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 11px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: left;
+  font-size: 13px;
+  vertical-align: top;
+}
+
+th {
+  background: #f8f9fa;
+}
+
+tr:hover {
+  background: #f9fbff;
+}
+
+#loginPesan,
+#adminPesan {
+  margin-top: 14px;
+  text-align: center;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.success {
+  color: #188038;
+}
+
+.error {
+  color: #d93025;
+}
+
+@media (max-width: 800px) {
+  .toolbar {
+    grid-template-columns: 1fr;
+  }
+
+  .summary {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .topbar {
+    align-items: flex-start;
+  }
+}

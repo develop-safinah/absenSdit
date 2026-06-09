@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Absensi SDIT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+  <main class="container">
+
+    <!-- LOGIN ADMIN -->
+    <section class="card login-card" id="loginBox">
+      <h1>Admin Absensi</h1>
+      <p>Login untuk melihat rekap absensi SDIT Safinatunnajah.</p>
+
+    <label for="email">Email Admin</label>
+     <input type="email" id="email" placeholder="Masukkan email admin">
+
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="Masukkan password">
+
+      <button id="btnLogin">Login Admin</button>
+
+      <div id="loginPesan"></div>
+    </section>
+
+    <!-- PANEL ADMIN -->
+    <section class="admin-panel hidden" id="adminPanel">
+      <div class="topbar">
+        <div>
+          <h1>Rekap Absensi</h1>
+          <p>SDIT Safinatunnajah</p>
+        </div>
+
+        <button id="btnLogout" class="btn-secondary">Logout</button>
+      </div>
+
+      <div class="toolbar">
+        <div class="filter-group">
+          <label for="tanggalMulai">Dari Tanggal</label>
+          <input type="date" id="tanggalMulai">
+        </div>
+
+        <div class="filter-group">
+          <label for="tanggalSelesai">Sampai Tanggal</label>
+          <input type="date" id="tanggalSelesai">
+        </div>
+
+        <div class="filter-group">
+          <label for="filterKeterangan">Keterangan</label>
+          <select id="filterKeterangan">
+            <option value="">Semua</option>
+            <option value="Hadir">Hadir</option>
+            <option value="Terlambat">Terlambat</option>
+            <option value="Izin">Izin</option>
+            <option value="Sakit">Sakit</option>
+          </select>
+        </div>
+
+        <button id="btnTerapkan">Terapkan Filter</button>
+        <button id="btnExport" class="btn-success">Export CSV</button>
+      </div>
+
+      <div class="summary">
+        <div>Total: <strong id="totalData">0</strong></div>
+        <div>Hadir: <strong id="totalHadir">0</strong></div>
+        <div>Terlambat: <strong id="totalTerlambat">0</strong></div>
+        <div>Izin: <strong id="totalIzin">0</strong></div>
+        <div>Sakit: <strong id="totalSakit">0</strong></div>
+      </div>
+
+      <div id="adminPesan"></div>
+
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Tanggal</th>
+              <th>Jam</th>
+              <th>Nama Lengkap</th>
+              <th>Keterangan</th>
+              <th>Titik Koordinat</th>
+              <th>Akurasi</th>
+              <th>Jarak</th>
+              <th>Link Map</th>
+            </tr>
+          </thead>
+
+          <tbody id="tbodyAbsensi"></tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script type="module" src="admin.js"></script>
+</body>
+</html>
