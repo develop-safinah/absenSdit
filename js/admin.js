@@ -1,34 +1,16 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-app.js";
-
 import {
-  getAuth,
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged
+    onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
 
 import {
-  getFirestore,
-  collection,
-  getDocs,
-  query,
-  orderBy
+    collection,
+    getDocs,
+    query,
+    orderBy
 } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
 
-// Konfigurasi Firebase
-const firebaseConfig = {
-  apiKey: "AIzaSyDKp4-2xoqldMuhn5PzwBDVCZKG82mS6CY",
-  authDomain: "absensi-sdit-9a872.firebaseapp.com",
-  projectId: "absensi-sdit-9a872",
-  storageBucket: "absensi-sdit-9a872.firebasestorage.app",
-  messagingSenderId: "196616421068",
-  appId: "1:196616421068:web:0b64690ce5dbdcdd77cc69",
-  measurementId: "G-D015K9FE6M"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
+import { auth, db } from "./firebase.js";
+import { login, logout } from "./auth.js";
 
 const loginBox = document.getElementById("loginBox");
 const adminPanel = document.getElementById("adminPanel");
@@ -52,12 +34,12 @@ btnExport.addEventListener("click", exportCSV);
 
 onAuthStateChanged(auth, async function(user) {
   if (user) {
-    loginBox.classList.add("hidden");
-    adminPanel.classList.remove("hidden");
+   loginBox.classList.add("d-none");
+    adminPanel.classList.remove("d-none");
     await muatDataAbsensi();
   } else {
-    loginBox.classList.remove("hidden");
-    adminPanel.classList.add("hidden");
+    loginBox.classList.remove("d-none");
+    adminPanel.classList.add("d-none");
   }
 });
 
@@ -74,7 +56,7 @@ async function loginAdmin() {
   tampilkanLoginPesan("Sedang login...", "");
 
   try {
-    await signInWithEmailAndPassword(auth, email, password);
+    await login(email, password);
     tampilkanLoginPesan("", "");
   } catch (error) {
     console.error(error);
@@ -88,7 +70,7 @@ async function loginAdmin() {
 }
 
 async function logoutAdmin() {
-  await signOut(auth);
+  await logout();
 }
 
 async function muatDataAbsensi() {
@@ -108,9 +90,11 @@ async function muatDataAbsensi() {
       });
     });
 
-    dataTampil = [...semuaData];
-    renderTabel(dataTampil);
-    renderSummary(dataTampil);
+    const hariIni = new Date().toISOString().slice(0, 10);
+
+    document.getElementById("tanggalMulai").value = hariIni;
+    document.getElementById("tanggalSelesai").value = hariIni;
+    terapkanFilter();
 
     adminPesan.innerHTML = "";
   } catch (error) {

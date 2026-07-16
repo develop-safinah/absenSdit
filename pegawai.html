@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kelola Pegawai</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container py-4">
+
+    <div class="card shadow">
+
+        <div class="card-body">
+
+            <!-- Header -->
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <div>
+                    <h3 class="mb-0">Kelola Pegawai</h3>
+                    <small class="text-muted">SDIT Safinatunnajah</small>
+                </div>
+
+                <a href="admin.html" class="btn btn-outline-secondary">
+                    ← Kembali
+                </a>
+
+            </div>
+
+            <!-- Form Tambah -->
+            <div class="row g-2 mb-4">
+
+                <div class="col-md-9">
+
+                    <input
+                        type="text"
+                        id="namaPegawai"
+                        class="form-control"
+                        placeholder="Masukkan nama pegawai">
+
+                </div>
+
+                <div class="col-md-3 d-grid">
+
+                    <button
+                        id="btnTambah"
+                        class="btn btn-primary">
+
+                        + Tambah Pegawai
+
+                    </button>
+
+                </div>
+
+            </div>
+
+            <div id="pesan" class="mb-3"></div>
+
+            <!-- Tabel -->
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-hover align-middle">
+
+                    <thead class="table-dark">
+
+                        <tr>
+
+                            <th style="width:70px;">No</th>
+                            <th>Nama Pegawai</th>
+                            <th style="width:180px;">Aksi</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tbodyPegawai">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script type="module" src="js/pegawai.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

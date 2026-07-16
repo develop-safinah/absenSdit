@@ -1,70 +1,164 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>Absensi SDIT Safinatunnajah</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <title>Absensi SDIT Safinatunnajah</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body class="bg-light">
 
-  <main class="container">
-    <div class="card">
-      <div class="header">
-        <div>
-          <img src="logo/logo.png" alt="logo">
+<div class="container py-5">
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-5 col-md-7">
+
+            <div class="card shadow-lg border-0">
+
+                <div class="card-body p-4">
+
+                    <!-- Header -->
+                     <div class="d-flex justify-content-between align-items-start mb-4">
+
+                      <div></div>
+
+                      <a href="admin.html" class="btn btn-outline-secondary btn-sm">
+                          <i class="bi bi-person-lock"></i> Admin
+                      </a>
+
+                  </div>
+
+                    <div class="text-center mb-4">
+
+                        <img
+                            src="logo/logo.png"
+                            alt="Logo"
+                            width="90"
+                            class="mb-3">
+
+                        <h3 class="fw-bold mb-1">
+                            Absensi Kehadiran
+                        </h3>
+
+                        <p class="text-muted mb-0">
+                            SDIT Safinatunnajah
+                        </p>
+
+                    </div>
+
+                    <!-- Nama -->
+
+                    <div class="mb-3">
+
+                        <label class="form-label">
+                            Nama Lengkap
+                        </label>
+
+                        <select
+                            id="peserta"
+                            class="form-select">
+
+                            <option value="">
+                                -- Pilih Nama --
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Keterangan -->
+
+                    <div class="mb-4">
+
+                        <label class="form-label">
+                            Keterangan
+                        </label>
+
+                        <select
+                            id="keterangan"
+                            class="form-select">
+
+                            <option value="">
+                                -- Pilih Keterangan --
+                            </option>
+
+                            <option value="Hadir">
+                                Hadir
+                            </option>
+
+                            <option value="Terlambat">
+                                Terlambat
+                            </option>
+
+                            <option value="Izin">
+                                Izin
+                            </option>
+
+                            <option value="Sakit">
+                                Sakit
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <!-- Tombol -->
+
+                    <div class="d-grid">
+
+                        <button
+                            id="btnAbsen"
+                            class="btn btn-success btn-lg">
+
+                            📍 Absen Sekarang
+
+                        </button>
+
+                    </div>
+
+                    <!-- Pesan -->
+
+                    <div
+                        id="pesan"
+                        class="mt-3">
+                    </div>
+
+                    <!-- Informasi -->
+
+                    <div class="alert alert-warning mt-4 mb-0">
+
+                        <strong>Perhatian</strong>
+
+                        <hr>
+
+                        Pastikan GPS/lokasi aktif.
+
+                        Gunakan <strong>Google Chrome</strong>.
+
+                        Saat muncul izin lokasi, pilih
+                        <strong>Izinkan</strong>.
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
-        <h1>Absensi Kehadiran</h1>
-        <p>SDIT Safinatunnajah</p>
-      </div>
 
-      <label for="namaLengkap">Nama Lengkap</label>
-      <select id="namaLengkap">
-        <option value="">-- Pilih Nama --</option>
-        <option value="Lutfiah, S.Pd">Lutfiah, S.Pd</option>
-        <option value="Siti Laelatul Lutfiah, S.Pd">Siti Laelatul Lutfiah, S.Pd</option>
-        <option value="Elis Rosmiati">Elis Rosmiati</option>
-        <option value="Widdi Agustini">Widdi Agustini</option>
-        <option value="Malyya Azizah Nurfitria, S.Hum">Malyya Azizah Nurfitria, S.Hum</option>
-        <option value="Iis Rodiatul Magpuroh, S.Pd">Iis Rodiatul Magpuroh, S.Pd</option>
-        <option value="Nuraenah, S.Pd">Nuraenah, S.Pd</option>
-        <option value="Raudotul Janah">Raudotul Janah</option>
-        <option value="Tia Munjiah">Tia Munjiah</option>
-        <option value="Aris Firdaus, S.H">Aris Firdaus, S.H</option>
-        <option value="Ati Sulastri, S.Sos">Ati Sulastri, S.Sos</option>
-        <option value="Rahmat, S.Pd">Rahmat, S.Pd</option>
-        <option value="Siva Oktavianti">Siva Oktavianti</option>
-        <option value="Suroji Anwar">Suroji Anwar</option>
-        <option value="Esih Sukaesih">Esih Sukaesih</option>
-        <option value="Rokayah">Rokayah</option>
-        <option value="Fatihah Inayah">Fatihah Inayah</option>
-        <option value="Rihhadatul Asyi">Rihhadatul Asyi</option>
-        <option value="Shireen">Shireen</option>
-      </select>
-
-      <label for="keterangan">Keterangan</label>
-      <select id="keterangan">
-        <option value="">-- Pilih Keterangan --</option>
-        <option value="Hadir">Hadir</option>
-        <option value="Terlambat">Terlambat</option>
-        <option value="Izin">Izin</option>
-        <option value="Sakit">Sakit</option>
-      </select>
-
-      <button id="btnAbsen">Absen Sekarang</button>
-
-      <div id="pesan"></div>
-
-      <div class="note">
-        Pastikan GPS/lokasi HP aktif. Gunakan Google Chrome. Saat muncul izin lokasi, pilih <strong>Izinkan</strong>.
-      </div>
     </div>
-  </main>
 
-  <script type="module" src="script.js"></script>
+</div>
+
+<script type="module" src="js/script.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
-</html>
 
-<script type="module" src="script.js"></script>
+</html>
